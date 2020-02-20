@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<%= link_to 'Add User', new_user_path, :class => 'btn btn-default' %>
+<hr />
+<% @users.each do |user| %>
+    <div class="well">
+        <h2><%= user.fName %> <%= user.lName %>></h2>
+        <p>
+            <%= user.id %>
+            <br>
+            <%= user.email %>
+            <br>
+            <%= user.user_type %>
+        </p>
+        <%= link_to "More info", user_path(user), :class => "btn btn-default" %>
+    </div>
+<% end %>

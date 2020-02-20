@@ -1,0 +1,54 @@
+<h2>User details for <%= @user.fName %> <%= @user.lName %> </h2>
+<table>
+  <tr>
+    <td colspan="2">
+        <% if @user.avatar.attached? %>
+        <center><img style="max-width:200px;width: expression(this.width > 200 ? 200: true);" src="<%=(url_for(@user.avatar)) %>"></center> <!-- Max height @ref: https://stackoverflow.com/questions/3678378/is-there-a-way-to-specify-a-max-height-or-width-for-an-image -->
+        <% else %>
+        <center><img style="max-width:200px;width: expression(this.width > 200 ? 200: true);" src="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"></center> <!-- Max height @ref: https://stackoverflow.com/questions/3678378/is-there-a-way-to-specify-a-max-height-or-width-for-an-image -->
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+      <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><b>ID Number:</b></td>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <td><b>First Name:</b></td>
+    <td><%= @user.fName %></td>
+  </tr>
+  <tr>
+    <td><b>Last Name:</b></td>
+    <td><%= @user.lName %></td>
+  </tr>
+  <tr>
+    <td><b>Email:</b></td>
+    <td><%= @user.email %></td>
+  <!-- </tr>
+    <tr>
+    <td><b>Password Encrypted</b></td> 
+    <td><%#= @user.password %></td>
+  </tr> <!-- For testing only.-->
+  <tr>
+    <td><b>Password change:</b></td>
+    <td><%= link_to 'Change password', edit_user_path, :class => 'btn btn-default' %></td>
+  </tr>
+  <tr>
+    <td><b>user type:</b></td>
+    <td><%= @user.user_type %></td>
+  </tr>
+  <tr>
+    <td><b>Date joined:</b></td>
+    <td><%= @user.created_at %></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-default' %>
+<%= link_to 'Delete', user_path(@user),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?' },
+                        :class => 'btn btn-danger' %>
+<hr>
+<%= link_to "Back", users_path, :class => 'btn btn-default' %>

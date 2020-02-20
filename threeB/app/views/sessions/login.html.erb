@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+    
+    <%= label_tag :email %><bR>
+    <%= text_field_tag(:email, {:class => 'form-control'}) %>
+    
+    <%= label_tag :password %><br>
+    <%= text_field_tag(:password, {:class => 'form-control'}) %>
+    
+    <%= submit_tag "Login" %>
+    
+<% end %>
